@@ -1,0 +1,399 @@
+Microsoft Windows [Version 10.0.26200.9457]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\user>sqlplus
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mar. Sept. 29 17:40:30 2026
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> ed f1
+
+SQL> @ f1
+create user u2 identified by u2
+            *
+ERROR at line 1:
+ORA-01920: user name 'U2' conflicts with another user or role name
+
+
+
+Grant succeeded.
+
+Connected.
+CREATE TABLE DEPT
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+INSERT INTO DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+INSERT INTO DEPT VALUES (20, 'RESEARCH', 'DALLAS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+INSERT INTO DEPT VALUES (30, 'SALES', 'CHICAGO')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+INSERT INTO DEPT VALUES (40, 'OPERATIONS', 'BOSTON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+CREATE TABLE EMP
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+CREATE TABLE BONUS
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+CREATE TABLE SALGRADE
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+CREATE TABLE DUMMY
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+
+1 row created.
+
+
+Commit complete.
+
+USER is "U2"
+
+TABLE_NAME                     TABLE_TYPE
+------------------------------ -----------
+BONUS                          TABLE
+DEPT                           TABLE
+DUMMY                          TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+
+SQL> show user
+USER is "U2"
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL OR COMM = 0  ORDERED BY COMM DESC SAL , DESC COMM ;
+SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL OR COMM = 0  ORDERED BY COMM DESC SAL , DESC COMM
+                                                                *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL OR COMM = 0  ORDERED BY COMM SAL DESC , COMM DESC ;
+SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL OR COMM = 0  ORDERED BY COMM SAL DESC , COMM DESC
+                                                                *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL OR COMM = 0  ORDER BY COMM SAL DESC , COMM DESC ;
+SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL OR COMM = 0  ORDER BY COMM SAL DESC , COMM DESC
+                                                                              *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL   ORDER BY COMM SAL DESC , COMM DESC ;
+SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL   ORDER BY COMM SAL DESC , COMM DESC
+                                                                   *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL   ORDER BY COMM , SAL DESC , COMM DESC ;
+
+no rows selected
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM <> NULL   ORDER BY SAL DESC , COMM DESC ;
+
+no rows selected
+
+SQL> SELCT * FROM Emp ;
+SP2-0734: unknown command beginning "SELCT * FR..." - rest of line ignored.
+SQL> SELECT * FROM Emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17/12/08        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20/02/11       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22/02/11       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02/04/07       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28/09/10       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01/05/10       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09/06/09       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 09/12/12       3000
+        20
+
+      7839 KING       PRESIDENT            17/11/07       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 11/09/12       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 12/01/13       1100
+        20
+
+      7900 JAMES      CLERK           7698 03/12/10        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03/12/11       3000
+        20
+
+      7934 MILLER     CLERK           7782 23/01/12       1300
+        10
+
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE NOT (COMM = NULL )   ORDER BY SAL DESC , COMM DESC ;
+
+no rows selected
+
+SQL> SELECT ENAME,SAL,COMM  FROM Emp WHERE COMM IS NOT NULL   ORDER BY SAL DESC , COMM DESC ;
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+ALLEN            1600        300
+TURNER           1500          0
+MARTIN           1250       1400
+WARD             1250        500
+
+SQL> SELECT ENAME FROM Emp WHERE (  ENAME LIKE '%T%T%' ET  DEPTNO = 20 ) OR MGR = 7566 ;
+SELECT ENAME FROM Emp WHERE (  ENAME LIKE '%T%T%' ET  DEPTNO = 20 ) OR MGR = 7566
+                                     *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> SELECT ENAME FROM Emp WHERE  ENAME LIKE '%T%T%' ET  DEPTNO = 20  OR MGR = 7566 ;
+SELECT ENAME FROM Emp WHERE  ENAME LIKE '%T%T%' ET  DEPTNO = 20  OR MGR = 7566
+                                                *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT ENAME FROM EMP WHERE (ENAME LIKE '%T%T%' AND DEPTNO = 20) OR MGR = 7566;
+
+ENAME
+----------
+SCOTT
+FORD
+
+SQL> SELECT ENAME FROM Emp WHERE (ENAME LIKE '%T%T%' AND DEPTNO = 20) OR MGR = 7566;
+
+ENAME
+----------
+SCOTT
+FORD
+
+SQL> SELECT ENAME FROM Emp WHERE (  ENAME LIKE '%T%T%' AND  DEPTNO = 20 ) OR MGR = 7566 ;
+
+ENAME
+----------
+SCOTT
+FORD
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                       NOT NULL NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> SELECT ENAME FROM Emp WHERE JOB LIKE "SALESMAN" ORDER BY (COMM/SAL) DESC;
+SELECT ENAME FROM Emp WHERE JOB LIKE "SALESMAN" ORDER BY (COMM/SAL) DESC
+                                     *
+ERROR at line 1:
+ORA-00904: "SALESMAN": invalid identifier
+
+
+SQL> SELECT ENAME,COMM/SAL AS ratio FROM Emp WHERE JOB LIKE "SALESMAN" ORDER BY (COMM/SAL) DESC;
+SELECT ENAME,COMM/SAL AS ratio FROM Emp WHERE JOB LIKE "SALESMAN" ORDER BY (COMM/SAL) DESC
+                                                       *
+ERROR at line 1:
+ORA-00904: "SALESMAN": invalid identifier
+
+
+SQL> SELECT ENAME,COMM/SAL AS ratio FROM Emp WHERE JOB = "SALESMAN" ORDER BY (COMM/SAL) DESC;
+SELECT ENAME,COMM/SAL AS ratio FROM Emp WHERE JOB = "SALESMAN" ORDER BY (COMM/SAL) DESC
+                                                    *
+ERROR at line 1:
+ORA-00904: "SALESMAN": invalid identifier
+
+
+SQL> SELECT ENAME,COMM/SAL AS ratio FROM Emp WHERE JOB = 'SALESMAN' ORDER BY (COMM/SAL) DESC;
+
+ENAME           RATIO
+---------- ----------
+MARTIN           1,12
+WARD               ,4
+ALLEN           ,1875
+TURNER              0
+
+SQL>
