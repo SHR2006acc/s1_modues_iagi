@@ -1,4 +1,8 @@
+## exercice d heritage 
+
+
 class Personne : 
+    # constucteur
     personList=[[],[],[]]
     def __init__(self,nom,adress):
         self.nom=nom

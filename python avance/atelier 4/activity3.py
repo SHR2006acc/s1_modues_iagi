@@ -1,3 +1,6 @@
+# exercice sur les classes avec fct
+
+
 import os
 import time
 from datetime import date
