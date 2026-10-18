@@ -1,0 +1,526 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mar. Oct. 13 16:40:30 2026
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> ;
+SP2-0223: No lines in SQL buffer.
+SQL> select ename,deptno,dept from emp;
+select ename,deptno,dept from emp
+                              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> desc dept;
+ERROR:
+ORA-04043: object dept does not exist
+
+
+SQL> ed f1
+
+SQL> @ f1
+create user u2 identified by u2
+            *
+ERROR at line 1:
+ORA-01920: user name 'U2' conflicts with another user or role name
+
+
+
+Grant succeeded.
+
+Connected.
+CREATE TABLE DEPT
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+INSERT INTO DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+INSERT INTO DEPT VALUES (20, 'RESEARCH', 'DALLAS')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+INSERT INTO DEPT VALUES (30, 'SALES', 'CHICAGO')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+INSERT INTO DEPT VALUES (40, 'OPERATIONS', 'BOSTON')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C006998) violated
+
+
+CREATE TABLE EMP
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+INSERT INTO EMP VALUES
+*
+ERROR at line 1:
+ORA-00001: unique constraint (U2.SYS_C007000) violated
+
+
+CREATE TABLE BONUS
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+CREATE TABLE SALGRADE
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+CREATE TABLE DUMMY
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+
+1 row created.
+
+
+Commit complete.
+
+USER is "U2"
+
+TABLE_NAME                     TABLE_TYPE
+------------------------------ -----------
+BONUS                          TABLE
+DEPT                           TABLE
+DUMMY                          TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+
+SQL> desc dept;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                     NOT NULL VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> select ename,deptno,dept from emp;
+select ename,deptno,dept from emp
+                    *
+ERROR at line 1:
+ORA-00904: "DEPT": invalid identifier
+
+
+SQL> select ename,deptno,dname from emp;
+select ename,deptno,dname from emp
+                    *
+ERROR at line 1:
+ORA-00904: "DNAME": invalid identifier
+
+
+SQL> select emp.ename,dept.deptno,dept.dname from emp,dept;
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+SMITH              10 ACCOUNTING
+ALLEN              10 ACCOUNTING
+WARD               10 ACCOUNTING
+JONES              10 ACCOUNTING
+MARTIN             10 ACCOUNTING
+BLAKE              10 ACCOUNTING
+CLARK              10 ACCOUNTING
+SCOTT              10 ACCOUNTING
+KING               10 ACCOUNTING
+TURNER             10 ACCOUNTING
+ADAMS              10 ACCOUNTING
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+JAMES              10 ACCOUNTING
+FORD               10 ACCOUNTING
+MILLER             10 ACCOUNTING
+SMITH              20 RESEARCH
+ALLEN              20 RESEARCH
+WARD               20 RESEARCH
+JONES              20 RESEARCH
+MARTIN             20 RESEARCH
+BLAKE              20 RESEARCH
+CLARK              20 RESEARCH
+SCOTT              20 RESEARCH
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+KING               20 RESEARCH
+TURNER             20 RESEARCH
+ADAMS              20 RESEARCH
+JAMES              20 RESEARCH
+FORD               20 RESEARCH
+MILLER             20 RESEARCH
+SMITH              30 SALES
+ALLEN              30 SALES
+WARD               30 SALES
+JONES              30 SALES
+MARTIN             30 SALES
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+BLAKE              30 SALES
+CLARK              30 SALES
+SCOTT              30 SALES
+KING               30 SALES
+TURNER             30 SALES
+ADAMS              30 SALES
+JAMES              30 SALES
+FORD               30 SALES
+MILLER             30 SALES
+SMITH              40 OPERATIONS
+ALLEN              40 OPERATIONS
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+WARD               40 OPERATIONS
+JONES              40 OPERATIONS
+MARTIN             40 OPERATIONS
+BLAKE              40 OPERATIONS
+CLARK              40 OPERATIONS
+SCOTT              40 OPERATIONS
+KING               40 OPERATIONS
+TURNER             40 OPERATIONS
+ADAMS              40 OPERATIONS
+JAMES              40 OPERATIONS
+FORD               40 OPERATIONS
+
+ENAME          DEPTNO DNAME
+---------- ---------- --------------
+MILLER             40 OPERATIONS
+
+56 rows selected.
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                       NOT NULL NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> desc dept
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                     NOT NULL VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> select distinct job where deptno = 30 ;
+select distinct job where deptno = 30
+                    *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select distinct job from emp where deptno = 30 ;
+
+JOB
+---------
+SALESMAN
+CLERK
+MANAGER
+
+SQL> select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not NONE;
+select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not NONE
+                                                                                                  *
+ERROR at line 1:
+ORA-00908: missing NULL keyword
+
+
+SQL> select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not NONE;
+select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not NONE
+                                                                                                  *
+ERROR at line 1:
+ORA-00908: missing NULL keyword
+
+
+SQL> select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not none;
+select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not none
+                                                                                                  *
+ERROR at line 1:
+ORA-00908: missing NULL keyword
+
+
+SQL> select emp.ename,dept.dname,dept.loc from emp,dept where emp.deptno = dept.deptno and comm is not null;
+
+ENAME      DNAME          LOC
+---------- -------------- -------------
+TURNER     SALES          CHICAGO
+MARTIN     SALES          CHICAGO
+WARD       SALES          CHICAGO
+ALLEN      SALES          CHICAGO
+
+SQL> select emp.ename,dept.dname from emp,dept where ename like '%A%';
+
+ENAME      DNAME
+---------- --------------
+ALLEN      ACCOUNTING
+ALLEN      RESEARCH
+ALLEN      SALES
+ALLEN      OPERATIONS
+WARD       ACCOUNTING
+WARD       RESEARCH
+WARD       SALES
+WARD       OPERATIONS
+MARTIN     ACCOUNTING
+MARTIN     RESEARCH
+MARTIN     SALES
+
+ENAME      DNAME
+---------- --------------
+MARTIN     OPERATIONS
+BLAKE      ACCOUNTING
+BLAKE      RESEARCH
+BLAKE      SALES
+BLAKE      OPERATIONS
+CLARK      ACCOUNTING
+CLARK      RESEARCH
+CLARK      SALES
+CLARK      OPERATIONS
+ADAMS      ACCOUNTING
+ADAMS      RESEARCH
+
+ENAME      DNAME
+---------- --------------
+ADAMS      SALES
+ADAMS      OPERATIONS
+JAMES      ACCOUNTING
+JAMES      RESEARCH
+JAMES      SALES
+JAMES      OPERATIONS
+
+28 rows selected.
+
+SQL> select emp.ename,emp.job,emp.deptno,dept.dname where emp.deptno = dept.deptno and dept.loc like 'DALLAS';
+select emp.ename,emp.job,emp.deptno,dept.dname where emp.deptno = dept.deptno and dept.loc like 'DALLAS'
+                                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select emp.ename,emp.job,emp.deptno,dept.dname where emp.deptno = dept.deptno and dept.loc like 'DALLAS';
+select emp.ename,emp.job,emp.deptno,dept.dname where emp.deptno = dept.deptno and dept.loc like 'DALLAS'
+                                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select emp.ename,emp.job,emp.deptno,dept.dname from emp,dept where emp.deptno = dept.deptno and dept.loc like 'DALLAS';
+
+ENAME      JOB           DEPTNO DNAME
+---------- --------- ---------- --------------
+SMITH      CLERK             20 RESEARCH
+JONES      MANAGER           20 RESEARCH
+SCOTT      ANALYST           20 RESEARCH
+ADAMS      CLERK             20 RESEARCH
+FORD       ANALYST           20 RESEARCH
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                       NOT NULL NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select tab1.empno Nom_Employee,tab1.ename Code_Employee,tab1.mgr Nom_Manager,tab2.ename Code_Manager from emp tab1,emp tab2  where tab1.mgr = tab2.empno ;
+
+NOM_EMPLOYEE CODE_EMPLO NOM_MANAGER CODE_MANAG
+------------ ---------- ----------- ----------
+        7902 FORD              7566 JONES
+        7788 SCOTT             7566 JONES
+        7900 JAMES             7698 BLAKE
+        7844 TURNER            7698 BLAKE
+        7654 MARTIN            7698 BLAKE
+        7521 WARD              7698 BLAKE
+        7499 ALLEN             7698 BLAKE
+        7934 MILLER            7782 CLARK
+        7876 ADAMS             7788 SCOTT
+        7782 CLARK             7839 KING
+        7698 BLAKE             7839 KING
+
+NOM_EMPLOYEE CODE_EMPLO NOM_MANAGER CODE_MANAG
+------------ ---------- ----------- ----------
+        7566 JONES             7839 KING
+        7369 SMITH             7902 FORD
+
+13 rows selected.
+
+SQL> select tab1.empno  Code_Employee,tab1.ename Nom_Employee,tab1.mgr Nom_Manager,tab2.ename Code_Manager from emp tab1,emp tab2  where tab1.mgr = tab2.empno ;
+
+CODE_EMPLOYEE NOM_EMPLOY NOM_MANAGER CODE_MANAG
+------------- ---------- ----------- ----------
+         7902 FORD              7566 JONES
+         7788 SCOTT             7566 JONES
+         7900 JAMES             7698 BLAKE
+         7844 TURNER            7698 BLAKE
+         7654 MARTIN            7698 BLAKE
+         7521 WARD              7698 BLAKE
+         7499 ALLEN             7698 BLAKE
+         7934 MILLER            7782 CLARK
+         7876 ADAMS             7788 SCOTT
+         7782 CLARK             7839 KING
+         7698 BLAKE             7839 KING
+
+CODE_EMPLOYEE NOM_EMPLOY NOM_MANAGER CODE_MANAG
+------------- ---------- ----------- ----------
+         7566 JONES             7839 KING
+         7369 SMITH             7902 FORD
+
+13 rows selected.
+
+SQL> select tab1.ename Employee,tab1.hiredate Emp_Hiredate,tab2.ename Manager,tab2.hiredate Mgr_Hiredate from emp tab1,emp tab2  where tab1.mgr = tab2.empno ;
+
+EMPLOYEE   EMP_HIRE MANAGER    MGR_HIRE
+---------- -------- ---------- --------
+FORD       03/12/11 JONES      02/04/07
+SCOTT      09/12/12 JONES      02/04/07
+JAMES      03/12/10 BLAKE      01/05/10
+TURNER     11/09/12 BLAKE      01/05/10
+MARTIN     28/09/10 BLAKE      01/05/10
+WARD       22/02/11 BLAKE      01/05/10
+ALLEN      20/02/11 BLAKE      01/05/10
+MILLER     23/01/12 CLARK      09/06/09
+ADAMS      12/01/13 SCOTT      09/12/12
+CLARK      09/06/09 KING       17/11/07
+BLAKE      01/05/10 KING       17/11/07
+
+EMPLOYEE   EMP_HIRE MANAGER    MGR_HIRE
+---------- -------- ---------- --------
+JONES      02/04/07 KING       17/11/07
+SMITH      17/12/08 FORD       03/12/11
+
+13 rows selected.
+
+SQL> select tab1.ename Employee,tab1.hiredate Emp_Hiredate,tab2.ename Manager,tab2.hiredate Mgr_Hiredate from emp tab1,emp tab2  where tab1.mgr = tab2.empno and tab1.hiredate < tab2.hiredate;
+
+EMPLOYEE   EMP_HIRE MANAGER    MGR_HIRE
+---------- -------- ---------- --------
+JONES      02/04/07 KING       17/11/07
+SMITH      17/12/08 FORD       03/12/11
+
+SQL>

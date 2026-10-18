@@ -1,6 +1,6 @@
 # Composition et agrecation | ilistrer la deffirence 
 #scraping d un site | collect de data from Sites
-# streamlit example de base 
+# streamlit run app.py
 
 #
 # 2 On se basant sur les 3 presentations (Fichier , exception et Heritage , proposer une activite de votre choix , simple et pedagogique )

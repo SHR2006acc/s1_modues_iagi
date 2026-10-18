@@ -1,0 +1,6 @@
+# ignore lessons
+lessons/
+#ignore lesson files
+*.pdf
+*.pptx
+*.docx
